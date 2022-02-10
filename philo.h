@@ -6,7 +6,7 @@
 /*   By: shamizi <shamizi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 15:51:42 by shamizi           #+#    #+#             */
-/*   Updated: 2022/01/11 13:40:49 by shamizi          ###   ########.fr       */
+/*   Updated: 2022/02/10 15:06:36 by shamizi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_philo
 	int all_eat;
 	long long last_meal;
 	long long current_time;
-	long long starting_time;
 	int isdead;
 	pthread_t th;
 	pthread_mutex_t *lfork;
@@ -36,12 +35,15 @@ typedef struct s_philo
 
 typedef struct s_rules
 {
+
+	long long starting_time;
 	int nbphilo;
 	int timetodie;
 	int timetoeat;
 	int timetosleep;
-	int	someonedied;
+	int someonedied;
 	int max_meal;
+	pthread_mutex_t writing;
 	t_philo philo[250];
 }t_rules;
 
